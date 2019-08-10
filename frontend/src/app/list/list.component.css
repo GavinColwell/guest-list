@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+}
+.undo {
+    padding: 5px;
+    font-size: 16px;
+    vertical-align: center;
+    cursor: pointer;
+}
+
+#inputFilter {
+    margin: 10px;
+}

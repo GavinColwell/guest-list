@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <mat-form-field id="inputFilter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <table mat-table #table matSort [dataSource]="dataSource">
+      <ng-container matColumnDef="inviteName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let invite"> {{ invite.inviteName }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="checkIn">
+          <th mat-header-cell *matHeaderCellDef>Check In</th>
+          <td mat-cell *matCellDef="let invite">
+            <ng-container *ngIf="invite.checkInTime; else notIn">
+                {{ invite.checkInTime | date:"h:mm a" }}
+                <i class="material-icons float-right undo"
+                  (click)="undoAction('check in',invite)">
+                    undo
+                </i>
+            </ng-container>
+            <ng-template #notIn>
+              <button mat-fab color="primary"
+                (click)="checkIn(invite)">
+                <mat-icon>arrow_upward</mat-icon>
+              </button>
+            </ng-template>
+          </td>
+      </ng-container>
+
+      <ng-container matColumnDef="checkOut">
+          <th mat-header-cell *matHeaderCellDef>Check Out</th>
+          <td mat-cell *matCellDef="let invite">
+            <ng-container *ngIf="invite.checkOutTime; else notOut">
+                {{ invite.checkOutTime | date:"h:mm a" }}
+                <i class="material-icons float-right undo"
+                  (click)="undoAction('check out',invite)">
+                    undo
+                </i>
+            </ng-container>
+            <ng-template #notOut>
+              <button mat-fab color="primary"
+                (click)="checkOut(invite)"
+                [disabled]="!invite.checkInTime">
+                <mat-icon>arrow_downward</mat-icon>
+              </button>
+            </ng-template>
+          </td>
+      </ng-container>
+
+      <ng-container matColumnDef="over21">
+          <th mat-header-cell *matHeaderCellDef> 21+? </th>
+          <td mat-cell *matCellDef="let invite">
+            <mat-checkbox [checked]="invite.isOver21 ? true : false" color="primary"
+              (change)="toggle21(invite,$event)"></mat-checkbox>
+          </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>      
+</div>
+
+
+<!---
+      <thead>
+        <th>Guest Name</th>
+        <th>Time in</th>
+        <th>Time Out</th>
+        <th>Over 21?</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invite of invites">
+          <td>{{ invite.name }}</td>
+    
+          <td>
+            <ng-container *ngIf="invite.checkInTime != null; else notIn">
+              {{ invite.checkInTime | date:"h:mm:ss a" }}
+            </ng-container>
+            <ng-template #notIn>
+              <button mat-raised-button color="primary"
+                (click)="checkIn(invite)">Check In</button>
+            </ng-template>
+          </td>
+    
+          <td>
+              <ng-container *ngIf="invite.checkOutTime != null; else notOut">
+                {{ invite.checkOutTime | date:"h:m:sa" }}
+              </ng-container>
+              <ng-template #notOut>
+                <button mat-raised-button color="primary"
+                  [disabled]="invite.checkInTime === null"
+                  (click)="checkOut(invite)">Check Out</button>
+              </ng-template>
+            </td>
+        </tr>
+      </tbody>
+-->

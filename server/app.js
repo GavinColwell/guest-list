@@ -3,6 +3,7 @@ const GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 3001;
@@ -153,3 +154,9 @@ async function getRows(){
 
     return rows;
 }
+
+app.use(express.static(__dirname + '/dist/guest-list-frontend'));
+
+app.get('/*', function(req,res) {
+    res.sendFile(path.join(__dirname+'/dist/guest-list-frontend/index.html'));
+});

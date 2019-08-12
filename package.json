@@ -20,7 +20,8 @@
   "dependencies": {
     "@angular-devkit/build-angular": "^0.802.1",
     "@angular/cli": "^8.2.1",
-    "@angular/compiler": "^8.2.2"
+    "@angular/compiler": "^8.2.2",
+    "@angular/compiler-cli": "^8.2.2"
   },
   "engines": {
     "node": "~12.4.0",

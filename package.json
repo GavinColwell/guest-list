@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/GavinColwell/guest-list#readme",
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.802.1",
     "@angular/cli": "^8.2.1",
     "@angular/compiler": "^8.2.2"
   },

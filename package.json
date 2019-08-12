@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "echo \"Whats up youtube\"",
-    "postinstall": "cd frontend/ && ng build --aot --prod"
+    "postinstall": "cd frontend/ && npm install && ng build --aot --prod"
   },
   "repository": {
     "type": "git",

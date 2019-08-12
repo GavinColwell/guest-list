@@ -4,7 +4,7 @@
   "description": "Web app for party guest lists",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Whats up youtube\" && exit 1",
+    "start": "echo \"Whats up youtube\"",
     "postinstall": "ng version"
   },
   "repository": {

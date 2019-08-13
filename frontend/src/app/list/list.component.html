@@ -1,7 +1,11 @@
 <div class="container-fluid">
-  <mat-form-field id="inputFilter">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <mat-form-field id="inputNameFilter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by name">
   </mat-form-field>
+  <mat-checkbox color="primary"
+    (click)="onlyShowCheckedIn = !onlyShowCheckedIn">
+
+  </mat-checkbox>
   
   <table mat-table #table matSort [dataSource]="dataSource">
       <ng-container matColumnDef="inviteName">

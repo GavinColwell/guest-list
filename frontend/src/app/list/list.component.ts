@@ -22,6 +22,7 @@ export class ListComponent implements OnInit {
   ]
   apiUrl: string;
   invites: any;
+  onlyShowCheckedIn: boolean = false;
   
   constructor(public dialog: MatDialog,
     @Inject(HttpClient) private _http: HttpClient ) { }

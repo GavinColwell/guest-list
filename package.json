@@ -6,7 +6,7 @@
   "scripts": {
     "start": "echo \"Whats up youtube\"",
     "install": "cd frontend && npm install",
-    "postinstall": "echo '--------Install completed---------'",
+    "postinstall": "npm install -g @angular/cli@8.0.3",
     "build": "cd frontend/ && ng build --aot --prod"
   },
   "repository": {

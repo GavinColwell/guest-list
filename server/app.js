@@ -142,6 +142,7 @@ async function toggle21(invite) {
 }
 
 async function getRows(){
+    console.log(creds);
     const doc = new GoogleSpreadsheet('1gkMFtS8zGFWemDdF-mvMSl4iHaklX_64Y1MPMrIc3pU');
     await promisify(doc.useServiceAccountAuth)(creds);
 

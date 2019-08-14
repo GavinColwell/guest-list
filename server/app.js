@@ -41,6 +41,7 @@ getInvites()
 
 // Used to deploy on heroku
 function credsFromEnvironment() {
+    console.log("Using creds from environment");
     return {
         private_key: process.env.G_private_key,
         client_email: process.env.G_client_email,   
@@ -102,7 +103,6 @@ async function checkIn(invite) {
 async function checkOut(invite) {
 
     let record = await getRecord(invite);
-    console.log("yasdasd")
     record.timeout = invite.checkOutTime;
     record.save();
 }
@@ -155,8 +155,8 @@ async function getRows(){
     return rows;
 }
 
-app.use(express.static(__dirname + '/dist/guest-list-frontend'));
+app.use(express.static(__dirname + '/dist/'));
 
 app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname+'/dist/guest-list-frontend/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
 });

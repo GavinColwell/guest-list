@@ -4,7 +4,7 @@
   "description": "Web app for party guest lists",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && PORT=$PORT node app.js",
+    "start": "bash start_app.sh",
     "install": "bash install.sh",
     "postinstall": "npm install -g @angular/cli@8.0.3",
     "build": "bash build.sh"

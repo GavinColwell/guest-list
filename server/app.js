@@ -43,7 +43,7 @@ getInvites()
 function credsFromEnvironment() {
     return {
         private_key: process.env.G_private_key,
-        client_email: procces.env.G_client_email,   
+        client_email: process.env.G_client_email,   
     }
 }
 

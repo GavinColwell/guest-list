@@ -4,10 +4,10 @@
   "description": "Web app for party guest lists",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Whats up youtube\"",
-    "install": "cd frontend && npm install",
+    "start": "cd server && PORT=$PORT node app.js",
+    "install": "bash install.sh",
     "postinstall": "npm install -g @angular/cli@8.0.3",
-    "build": "cd frontend/ && ng build --aot --prod"
+    "build": "bash build.sh"
   },
   "repository": {
     "type": "git",

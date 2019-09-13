@@ -43,7 +43,7 @@ getInvites()
 function credsFromEnvironment() {
     console.log("Using creds from environment");
     return {
-        private_key: process.env.G_private_key,
+        private_key: process.env.G_private_key.replace(/\\n/g, '\n'),
         client_email: process.env.G_client_email,   
     }
 }
